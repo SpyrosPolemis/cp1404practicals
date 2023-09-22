@@ -1,11 +1,9 @@
-"""
-CP1404/CP5632 - Practical
-Broken program to determine score status
-"""
+"""Program to get user score and evaluate it"""
 from random import randint
 
 
 def main():
+    """Get user and random score and evaluate it"""
     score = float(input("Enter score: "))
     print(f"{score} is {evaluate_score(score)}")
     random_score = randint(1, 100)
@@ -13,6 +11,7 @@ def main():
 
 
 def evaluate_score(score):
+    """Evaluate score"""
     if score < 0 or score > 100:
         return "Invalid score"
     elif score < 50:
@@ -22,5 +21,5 @@ def evaluate_score(score):
     else:
         return "Excellent"
 
-
-main()
+if __name__ == '__main__':
+    main()
