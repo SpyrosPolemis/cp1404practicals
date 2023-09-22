@@ -2,11 +2,14 @@
 CP1404/CP5632 - Practical
 Broken program to determine score status
 """
+from random import randint
 
 
 def main():
     score = float(input("Enter score: "))
-    print(evaluate_score(score))
+    print(f"{score} is {evaluate_score(score)}")
+    random_score = randint(1, 100)
+    print(f"Random score {random_score} is {evaluate_score(random_score)}")
 
 
 def evaluate_score(score):
