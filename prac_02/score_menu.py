@@ -1,4 +1,4 @@
-""""""
+"""Score menu program"""
 
 from score import evaluate_score
 
@@ -9,6 +9,7 @@ MENU = """(G)et
 
 
 def main():
+    """Get score, evaluate score or print asterisks equal to score according to user input"""
     score = get_valid_score()
     print(MENU)
     choice = input(">>> ").upper()  # Could use a function but eh
@@ -27,6 +28,7 @@ def main():
 
 
 def get_valid_score():
+    """Get a score between 1 and 100"""
     score = int(input("Enter a score (1-100): "))
     while score < 1 or score > 100:
         print("Invalid score.")
