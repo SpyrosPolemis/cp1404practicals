@@ -1,4 +1,5 @@
 """Program to get user score and evaluate it"""
+
 from random import randint
 
 
@@ -20,6 +21,7 @@ def evaluate_score(score):
         return "Passable"
     else:
         return "Excellent"
+
 
 if __name__ == '__main__':
     main()
