@@ -21,7 +21,9 @@ def main():
             print("*" * score)
         else:
             print("Invalid choice.")
+        print(MENU)
         choice = input(">>> ").upper()
+    print("Ta ta and farewell!")
 
 
 def get_valid_score():
