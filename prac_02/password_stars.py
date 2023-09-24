@@ -13,6 +13,7 @@ def print_stars(password):
     """Print * equal to length of password"""
     for i in range(len(password)):
         print("*", end="")
+    # print("*" * len(password))
 
 
 def get_password():
