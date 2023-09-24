@@ -20,6 +20,9 @@ def main():
             print(f"{score} is {evaluate_score(score)}")
         elif choice == "S":
             print("*" * score)
+            # for i in range(score // 5):
+            #     print("*****")
+            # print("*" * (score % 5))
         else:
             print("Invalid choice.")
         print(MENU)
