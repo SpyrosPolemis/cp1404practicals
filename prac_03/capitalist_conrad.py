@@ -16,11 +16,12 @@ MAX_PRICE = 100.0
 INITIAL_PRICE = 10.0
 
 price = INITIAL_PRICE
-print(f"Starting price is ${price:,.2f}")
+out_file = open("price.txt", "w")
+print(f"Starting price is ${price:,.2f}", file=out_file)
+number_of_days = 1
 
 while MIN_PRICE <= price <= MAX_PRICE:
     price_change = 0
-    number_of_days = 1
     # generate a random integer of 1 or 2
     # if it's 1, the price increases, otherwise it decreases
     if random.randint(1, 2) == 1:
@@ -33,5 +34,6 @@ while MIN_PRICE <= price <= MAX_PRICE:
         price_change = random.uniform(-MAX_DECREASE, 0)
 
     price *= (1 + price_change)
-    print(f"On day {number_of_days} price is : ${price:,.2f}")
+    print(f"On day {number_of_days} price is : ${price:,.2f}", file=out_file)
     number_of_days += 1
+out_file.close()
