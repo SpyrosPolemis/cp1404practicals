@@ -17,6 +17,16 @@ def question_3():
         total = int(first_number) + int(second_number)
         print(total)
 
+
+def question_4():
+    total = 0
+    with open("numbers.txt") as in_file:
+        for line in in_file:
+            number = int(line)
+            total += number
+        print(total)
+
 question_1()
 question_2()
 question_3()
+question_4()
