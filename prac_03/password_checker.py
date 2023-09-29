@@ -4,8 +4,8 @@ Password checker "skeleton" code to help you get started
 """
 
 MIN_LENGTH = 2
-MAX_LENGTH = 6
-SPECIAL_CHARS_REQUIRED = False
+MAX_LENGTH = 10
+SPECIAL_CHARS_REQUIRED = True
 SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
 
 
@@ -41,8 +41,10 @@ def is_valid_password(password):
             count_upper += 1
         elif char.isdigit():
             count_digit += 1
-        else:
+        elif char in SPECIAL_CHARACTERS:
             count_special += 1
+        else:
+            return False  # If user enters very weird character, such as ; (greek question mark)
     if count_lower == 0 or count_upper == 0 or count_digit == 0:
         return False
     if SPECIAL_CHARS_REQUIRED:
