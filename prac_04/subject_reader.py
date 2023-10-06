@@ -8,7 +8,7 @@ FILENAME = "subject_data.txt"
 
 def main():
     data = get_data()
-    print(data)
+    display_subject_details(data)
 
 
 def get_data():
@@ -22,5 +22,11 @@ def get_data():
         data.append(parts)
     input_file.close()
     return data
+
+
+def display_subject_details(data):
+    for entry in data:
+        print(f"{entry[0]} is taught by {entry[1]} and has {entry[2]} students")
+
 
 main()
