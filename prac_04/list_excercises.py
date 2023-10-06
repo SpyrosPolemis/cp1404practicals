@@ -13,3 +13,6 @@ print(numbers[-1])
 print(min(numbers))
 print(max(numbers))
 print(sum(numbers) / NUMBER_OF_NUMBERS)
+
+usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface', 'BaseStdIn',
+             'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer', 'bob']
