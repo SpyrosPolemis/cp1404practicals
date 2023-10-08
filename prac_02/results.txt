@@ -1,0 +1,5 @@
+10 is Bad
+18 is Bad
+68 is Passable
+48 is Bad
+48 is Bad
