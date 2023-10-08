@@ -1,6 +1,7 @@
 """
-
+Program to generate lottery quick picks
 """
+
 import random
 
 MINIMUM_NUMBER = 1
