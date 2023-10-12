@@ -32,7 +32,7 @@ def main():
 
 
 def extract_name(email):
-    names = email[:email.index("@")].split(".")
+    names = email[:email.index("@")].split(".")  # takes everything before the @ and turns it into a list split by .
     full_name = " ".join(names).title()
     return full_name
 
