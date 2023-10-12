@@ -3,8 +3,11 @@ NAME_TO_CODE = {"zomp": "#39a78e", "united nations blue": "#5b92e5", "shocking p
                 "cadmium yellow": "#fff600", "blue de france": "#318ce7", "international orange": "#ff4f00",
                 "british racing green": "#004225"}
 
-colour = input("Enter colour name: ").lower()
-if colour in NAME_TO_CODE.keys():
-    print(f"{NAME_TO_CODE[colour]}")
-else:
-    print("Not a valid colour")
+colour_name = input("Enter colour name: ").lower()
+while colour_name != "":
+    if colour_name in NAME_TO_CODE.keys():
+        print(f"{NAME_TO_CODE[colour_name]}")
+    else:
+        print("Not a valid colour")
+    colour_name = input("Enter colour name: ").lower()
+print("Those are some funky colours! Too bad theres no Titanium Hwhite")
