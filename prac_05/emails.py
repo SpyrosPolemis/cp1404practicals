@@ -25,12 +25,14 @@ def main():
 
 
 def extract_name(email):
-    return email[:email.index("@")]
+    names = email[:email.index("@")].split(".")
+    full_name = " ".join(names).title()
+    return full_name
 
 
 def test_functions():
-    print(f"{extract_name('spyros.polemis@gmail.com')} should return spyros.polemis")
+    print(f"Should return Spyros Polemis: {extract_name('spyros.polemis@gmail.com')}")
 
 
-test_functions()
-# main()
+# test_functions()
+main()
