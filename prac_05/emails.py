@@ -28,5 +28,9 @@ def extract_name(email):
     return email[:email.index("@")]
 
 
+def test_functions():
+    print(f"{extract_name('spyros.polemis@gmail.com')} should return spyros.polemis")
 
-main()
+
+test_functions()
+# main()
