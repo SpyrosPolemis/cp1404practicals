@@ -1,7 +1,7 @@
 """
 Game, set, match!
 Estimated: 40 mins
-Actual:
+Actual: At least 18 minutes
 
 for line in file
     we want tooo
@@ -21,6 +21,7 @@ def main():
             # line.strip()  # not needed?
             parts = line.split(" ")
             player_info.append(parts)
-        print(player_info)
+
+
 
 main()
