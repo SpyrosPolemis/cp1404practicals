@@ -13,9 +13,14 @@ for line in file
 def main():
     # filename = input("Enter filename: ")
     filename = "wimbledon.csv"
+    player_info = []
     player_to_number_of_wins = {}
     with open(filename, "r", encoding="utf-8-sig") as in_file:
-        player_information = in_file.readlines()
-        print(player_information)
+        in_file.readline()
+        for line in in_file:
+            # line.strip()  # not needed?
+            parts = line.split(" ")
+            player_info.append(parts)
+        print(player_info)
 
 main()
