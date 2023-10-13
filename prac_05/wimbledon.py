@@ -13,22 +13,23 @@ with in_file
 
 
 def main():
-    """ """
-    filename = "wimbledon.csv"
-    # filename = input("Enter filename: ")
+    """"""
+    # filename = "wimbledon.csv"
+    filename = input("Enter filename: ")
     match_results = format_match_results(filename)
     player_to_number_of_wins = count_player_wins(match_results)
-    country_wins = count_country_wins(match_results)
-
+    country_wins = derive_winning_countries(match_results)
+    # Print winning players
     print("Wimbledon Champions:")
     for player, number_of_wins in player_to_number_of_wins.items():
         print(f"{player} {number_of_wins}")
-
+    # Print winning countries
     print("These twelve countries have won Wimbledon:")
     print(*country_wins, sep=", ")
 
 
-def count_country_wins(match_results):
+def derive_winning_countries(match_results):
+    """"""
     countries = []
     for match_result in match_results:
         countries.append(match_result[1])
@@ -37,6 +38,7 @@ def count_country_wins(match_results):
 
 
 def count_player_wins(match_results):
+    """"""
     player_to_number_of_wins = {}
     for match_result in match_results:
         if match_result[2] in player_to_number_of_wins:
@@ -47,6 +49,7 @@ def count_player_wins(match_results):
 
 
 def format_match_results(filename):
+    """"""
     match_results = []
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()
