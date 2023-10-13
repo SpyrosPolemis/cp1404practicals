@@ -1,7 +1,7 @@
 """
 Game, set, match!
 Estimated: 40 mins
-Actual: Too long, too long.
+Actual: Too long, tooo long. (2 hours? I was being silly)
 
 get filename
 with in_file
@@ -26,7 +26,7 @@ def print_countries(records):
         countries.append(record[1])
     countries = set(countries)
     print("These twelve countries have won Wimbledon:")
-    print(countries)
+    print(*countries, sep=", ")
 
 
 def print_champions(records):
