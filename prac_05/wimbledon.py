@@ -18,20 +18,22 @@ def main():
     # filename = input("Enter filename: ")
     match_results = format_match_results(filename)
     player_to_number_of_wins = count_player_wins(match_results)
-    print_countries(match_results)
+    country_wins = count_country_wins(match_results)
 
     print("Wimbledon Champions:")
     for player, number_of_wins in player_to_number_of_wins.items():
         print(f"{player} {number_of_wins}")
 
+    print("These twelve countries have won Wimbledon:")
+    print(*country_wins, sep=", ")
 
-def print_countries(match_results):
+
+def count_country_wins(match_results):
     countries = []
     for match_result in match_results:
         countries.append(match_result[1])
     countries = set(countries)
-    print("These twelve countries have won Wimbledon:")
-    print(*countries, sep=", ")
+    return countries
 
 
 def count_player_wins(match_results):
