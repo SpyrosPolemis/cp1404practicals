@@ -21,22 +21,22 @@ def main():
     print_countries(match_results)
 
 
-def print_countries(records):
+def print_countries(match_results):
     countries = []
-    for record in records:
-        countries.append(record[1])
+    for match_result in match_results:
+        countries.append(match_result[1])
     countries = set(countries)
     print("These twelve countries have won Wimbledon:")
     print(*countries, sep=", ")
 
 
-def print_champions(records):
+def print_champions(match_results):
     player_to_number_of_wins = {}
-    for record in records:
-        if record[2] in player_to_number_of_wins:
-            player_to_number_of_wins[record[2]] += 1
+    for match_result in match_results:
+        if match_result[2] in player_to_number_of_wins:
+            player_to_number_of_wins[match_result[2]] += 1
         else:
-            player_to_number_of_wins[record[2]] = 1
+            player_to_number_of_wins[match_result[2]] = 1
     print("Wimbledon Champions:")
     for player, number_of_wins in player_to_number_of_wins.items():
         print(f"{player} {number_of_wins}")
