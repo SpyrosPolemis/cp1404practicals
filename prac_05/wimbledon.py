@@ -17,8 +17,12 @@ def main():
     filename = "wimbledon.csv"
     # filename = input("Enter filename: ")
     match_results = format_match_results(filename)
-    print_champions(match_results)
+    player_to_number_of_wins = count_player_wins(match_results)
     print_countries(match_results)
+
+    print("Wimbledon Champions:")
+    for player, number_of_wins in player_to_number_of_wins.items():
+        print(f"{player} {number_of_wins}")
 
 
 def print_countries(match_results):
@@ -30,16 +34,14 @@ def print_countries(match_results):
     print(*countries, sep=", ")
 
 
-def print_champions(match_results):
+def count_player_wins(match_results):
     player_to_number_of_wins = {}
     for match_result in match_results:
         if match_result[2] in player_to_number_of_wins:
             player_to_number_of_wins[match_result[2]] += 1
         else:
             player_to_number_of_wins[match_result[2]] = 1
-    print("Wimbledon Champions:")
-    for player, number_of_wins in player_to_number_of_wins.items():
-        print(f"{player} {number_of_wins}")
+    return player_to_number_of_wins
 
 
 def format_match_results(filename):
