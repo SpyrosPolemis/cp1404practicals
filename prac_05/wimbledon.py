@@ -13,7 +13,7 @@ with in_file
 
 
 def main():
-    """"""
+    """Read match history from file and print winning players and countries."""
     # filename = "wimbledon.csv"
     filename = input("Enter filename: ")
     match_results = format_match_results(filename)
@@ -29,7 +29,7 @@ def main():
 
 
 def derive_winning_countries(match_results):
-    """"""
+    """Derive the winning countries from match history."""
     countries = []
     for match_result in match_results:
         countries.append(match_result[1])
@@ -38,7 +38,7 @@ def derive_winning_countries(match_results):
 
 
 def count_player_wins(match_results):
-    """"""
+    """Count how many times each player won the finals."""
     player_to_number_of_wins = {}
     for match_result in match_results:
         if match_result[2] in player_to_number_of_wins:
@@ -49,10 +49,10 @@ def count_player_wins(match_results):
 
 
 def format_match_results(filename):
-    """"""
+    """Format match results into a list of lists to improve utility of data."""
     match_results = []
     with open(filename, "r", encoding="utf-8-sig") as in_file:
-        in_file.readline()
+        in_file.readline()  # Skip
         for line in in_file:
             line = line.strip()
             parts = line.split(",")
