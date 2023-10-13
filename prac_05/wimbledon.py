@@ -15,9 +15,10 @@ with in_file
 def main():
     """ """
     filename = "wimbledon.csv"
-    records = process_file(filename)
-    print_champions(records)
-    print_countries(records)
+    # filename = input("Enter filename: ")
+    match_results = format_match_results(filename)
+    print_champions(match_results)
+    print_countries(match_results)
 
 
 def print_countries(records):
@@ -41,15 +42,16 @@ def print_champions(records):
         print(f"{player} {number_of_wins}")
 
 
-def process_file(filename):
-    records = []
+def format_match_results(filename):
+    match_results = []
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()
         for line in in_file:
             line = line.strip()
+            parts = line.split(",")
+            match_results.append(parts)
             # line = line[5:line.find(',', line.find(',', line.find(',') + 1) + 1)]  # for future generations to see
-            records.append(line.split(","))
-    return records
+    return match_results
 
 
 main()
