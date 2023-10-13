@@ -17,7 +17,7 @@ print dict
 
 
 def main():
-    """Program to extract users' names from email"""
+    """Program to extract users' names from email."""
     email = input("Email: ")
     name_to_email = {}
     while email != "":
@@ -32,12 +32,14 @@ def main():
 
 
 def extract_name(email):
-    names = email[:email.index("@")].split(".")  # takes everything before the @ and turns it into a list split by .
+    """Extracts name from email."""
+    names = email[:email.index("@")].split(".")  # takes everything before the @ and turns it into a list, split by "."
     full_name = " ".join(names).title()
     return full_name
 
 
 def test_functions():
+    """Tests other functions."""
     print(f"Should return Spyros Polemis: {extract_name('spyros.polemis@gmail.com')}")
 
 
