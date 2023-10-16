@@ -18,16 +18,26 @@ def main():
     """Read match history from file and print winning players and countries."""
     filename = "wimbledon.csv"
     # filename = input("Enter filename: ")
+
     match_results = format_match_results(filename)
-    winning_players = count_player_wins(match_results)
+    winning_players = count_player_wins(match_results, 2)
+    losing_players = count_player_wins(match_results, 4)
     winning_countries = derive_winning_countries(match_results)
-    # Print winning players
+
+    # Print player stats
     print("Wimbledon Champions:")
-    for winning_player in winning_players:
-        print(f"{winning_player[0]} {winning_player[1]}")
+    print_player_win_loss(winning_players)
+    print("Wimbledon Losers:")
+    print_player_win_loss(losing_players)
+
     # Print winning countries
     print("These twelve countries have won Wimbledon:")
     print(*winning_countries, sep=", ")
+
+
+def print_player_win_loss(winning_players):
+    for winning_player in winning_players:
+        print(f"{winning_player[0]} {winning_player[1]}")
 
 
 def derive_winning_countries(match_results):
@@ -39,14 +49,14 @@ def derive_winning_countries(match_results):
     return countries
 
 
-def count_player_wins(match_results):
+def count_player_wins(match_results, i):
     """Count how many times each player won the finals."""
     player_to_number_of_wins = {}
     for match_result in match_results:
-        if match_result[2] in player_to_number_of_wins:
-            player_to_number_of_wins[match_result[2]] += 1
+        if match_result[i] in player_to_number_of_wins:
+            player_to_number_of_wins[match_result[i]] += 1
         else:
-            player_to_number_of_wins[match_result[2]] = 1
+            player_to_number_of_wins[match_result[i]] = 1
     winning_players = list(player_to_number_of_wins.items())
     winning_players.sort(key=itemgetter(1), reverse=True)
     return winning_players
@@ -63,7 +73,7 @@ def format_match_results(filename):
             match_results.append(parts)
             # line = line[5:line.find(',', line.find(',', line.find(',') + 1) + 1)]  # for future generations to see
     return match_results
-    # returns in format: [["1968", "AUS", "Federer", etc.], ["1969", "FRA", "Spyros", etc.]]
+    # returns in format: [["1968", "AUS", "Federer", etc.], ["1969", "FRA", "Spyros", etc.], etc.]
 
 
 main()
