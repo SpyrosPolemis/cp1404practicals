@@ -1,6 +1,6 @@
 """
 Estimated time: 45 minutes
-Actual time:
+Actual time: 29 minutes
 
 Client code to use the ProgrammingLanguages class
 """
