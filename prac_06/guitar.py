@@ -10,7 +10,7 @@ class Guitar:
         """Initialise a guitar instance"""
         self.name = name
         self.year = int(year)
-        self.cost = int(cost)
+        self.cost = float(cost)
 
     def __str__(self):
         return f"{self.name}, ({self.year}) : ${self.cost:,}"
