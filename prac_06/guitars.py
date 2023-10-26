@@ -1,6 +1,6 @@
 """
 Estimated: 50 minutes
-Actual:
+Actual: 60 minutes
 """
 
 from guitar import Guitar
