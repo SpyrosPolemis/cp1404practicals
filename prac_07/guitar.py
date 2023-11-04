@@ -1,4 +1,4 @@
-"""Guitar class for cp1404 prac_06"""
+"""Guitar class for cp1404 prac_07"""
 
 CURRENT_YEAR = 2023
 

@@ -6,6 +6,8 @@ Actual:
 # import datetime
 from project import Project
 
+DEFAULT_FILENAME = "projects.txt"
+
 MENU = """- (L)oad projects  
 - (S)ave projects  
 - (D)isplay projects  
@@ -17,11 +19,13 @@ MENU = """- (L)oad projects
 
 def main():
     """"""
+    projects = load_projects_from_file(DEFAULT_FILENAME)
     print(MENU)
     user_choice = input(">>> ").lower()
     while user_choice != "Q":
         if user_choice == "l":
-            projects = load_projects_from_file()
+            filename = input("Enter filename: ")
+            projects = load_projects_from_file(filename)
         elif user_choice == "s":
             pass
         elif user_choice == "d":
@@ -38,8 +42,8 @@ def main():
         user_choice = input(">>> ").lower()
 
 
-def load_projects_from_file():
-    filename = input("Enter filename: ")
+def load_projects_from_file(filename):
+    """Load projects from selected """
     projects = []
     with open(filename) as in_file:
         in_file.readline()
@@ -57,7 +61,7 @@ def save_projects_to_file():
 def test_functions():
     """Test other functions."""
     # Test load_projects_from_file function
-    projects = load_projects_from_file()
+    projects = load_projects_from_file(DEFAULT_FILENAME)
     for project in projects:
         print(project)
     #
