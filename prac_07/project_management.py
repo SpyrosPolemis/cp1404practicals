@@ -36,7 +36,7 @@ def main():
         elif user_choice == "a":
             add_new_project(projects)
         elif user_choice == "u":
-            pass
+            update_project(projects)
         else:
             print("Invalid input")
         print(MENU)
@@ -93,6 +93,27 @@ def add_new_project(projects):
     cost_estimate = input("Cost estimate: $")
     percent_complete = input("Percent complete: ")
     projects.append(Project(name, start_date, priority, cost_estimate, percent_complete))
+
+
+def update_project(projects):
+    """Update priority and or percentage of user-selected project."""
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    project_to_update_index = int(input("Project choice: "))
+    project_to_update = projects[project_to_update_index]
+    print(project_to_update)
+
+    new_percentage = input("New percentage: ")
+    if new_percentage == "":
+        new_percentage = project_to_update.completion_percentage
+    else:
+        project_to_update.completion_percentage = new_percentage
+
+    new_priority = input("New priority: ")
+    if new_priority == "":
+        new_priority = project_to_update.priority
+    else:
+        project_to_update.priority = new_priority
 
 
 def test_functions():
