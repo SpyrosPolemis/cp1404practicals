@@ -3,7 +3,7 @@
 Estimate: 120 minutes
 Actual:
 """
-# import datetime
+import datetime
 from project import Project
 
 DEFAULT_FILENAME = "projects.txt"
@@ -32,7 +32,7 @@ def main():
         elif user_choice == "d":
             display_projects(projects)
         elif user_choice == "f":
-            pass
+            filter_projects_by_date(projects)
         elif user_choice == "a":
             pass
         elif user_choice == "u":
@@ -72,6 +72,16 @@ def save_projects_to_file(filename, projects):
         print("Name    Start Date	Priority	Cost Estimate	Completion Percentage", file=out_file)
         for project in projects:
             print(repr(project), file=out_file)
+
+
+def filter_projects_by_date(projects):
+    """Print projects that start after user-specified date."""
+    date_string = input("Show projects that start after date (dd/mm/yy): ")
+    date_to_start_by = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    for project in projects:
+        date_of_project = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
+        if date_of_project > date_to_start_by:
+            print(project)
 
 
 def test_functions():
