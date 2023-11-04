@@ -30,7 +30,7 @@ def main():
             filename_to_write = input("Enter filename: ")
             save_projects_to_file(filename_to_write, projects)
         elif user_choice == "d":
-            pass
+            display_projects(projects)
         elif user_choice == "f":
             pass
         elif user_choice == "a":
@@ -41,6 +41,17 @@ def main():
             print("Invalid input")
         print(MENU)
         user_choice = input(">>> ").lower()
+
+
+def display_projects(projects):
+    complete_projects = (project for project in projects if project.completion_percentage == 100)
+    print("Incomplete projects:")
+    for project in projects:
+        if project not in complete_projects:
+            print(project)
+    print("Complete projects:")
+    for complete_project in complete_projects:
+        print(complete_project)
 
 
 def load_projects_from_file(filename):
