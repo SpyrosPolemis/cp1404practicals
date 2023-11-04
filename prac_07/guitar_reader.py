@@ -6,9 +6,11 @@ Actual:
 """
 from guitar import Guitar
 
+
 def main():
     """"""
     guitars = load_guitars_from_file()
+    guitars.sort()
     for guitar in guitars:
         print(guitar)
 
