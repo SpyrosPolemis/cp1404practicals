@@ -16,6 +16,10 @@ class Guitar:
         """Return string representation of Guitar object."""
         return f"{self.name}, ({self.year}) : ${self.cost:,}"
 
+    def __repr__(self):
+        """Return string representation of object that can be used to recreate it."""
+        return f"{self.name},{self.year},{self.cost}"
+
     def __lt__(self, other):
         """Compare if a guitar is less than another using its year."""
         return self.year < other.year

@@ -8,15 +8,11 @@ from guitar import Guitar
 
 
 def main():
-    """"""
+    """Get guitars from file, ask user for their guitars then print guitars and save them to file."""
     guitars = load_guitars_from_file()
     add_user_guitars(guitars)
     print_guitars(guitars)
-
-
-def print_guitars(guitars):
-    for guitar in guitars:
-        print(guitar)
+    save_guitars_to_file(guitars)
 
 
 def load_guitars_from_file():
@@ -42,6 +38,19 @@ def add_user_guitars(guitars):
         guitars.append(new_guitar)
         print(new_guitar, "added.")
         guitar_name = input("Name: ")
+
+
+def print_guitars(guitars):
+    """Print all guitars."""
+    for guitar in guitars:
+        print(guitar)
+
+
+def save_guitars_to_file(guitars):
+    """Save list of guitars to file."""
+    with open("guitars.csv", "w") as out_file:
+        for guitar in guitars:
+            print(repr(guitar), file=out_file)
 
 
 if __name__ == '__main__':
