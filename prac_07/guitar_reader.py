@@ -2,7 +2,7 @@
 Guitar reader program - Reads guitar info from file, then makes Guitar object with each of them and prints them
 
 Estimate: 30
-Actual:
+Actual: 37
 """
 from guitar import Guitar
 
