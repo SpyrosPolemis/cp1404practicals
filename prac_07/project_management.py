@@ -44,14 +44,14 @@ def main():
 
 
 def display_projects(projects):
-    complete_projects = (project for project in projects if project.completion_percentage == 100)
+    complete_projects = [project for project in projects if project.completion_percentage == 100]
     print("Incomplete projects:")
     for project in projects:
         if project not in complete_projects:
-            print(project)
+            print(f"  {project}")
     print("Complete projects:")
     for complete_project in complete_projects:
-        print(complete_project)
+        print(f"  {complete_project}")
 
 
 def load_projects_from_file(filename):
