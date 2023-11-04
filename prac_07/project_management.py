@@ -34,7 +34,7 @@ def main():
         elif user_choice == "f":
             filter_projects_by_date(projects)
         elif user_choice == "a":
-            pass
+            add_new_project(projects)
         elif user_choice == "u":
             pass
         else:
@@ -82,6 +82,17 @@ def filter_projects_by_date(projects):
         date_of_project = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
         if date_of_project > date_to_start_by:
             print(project)
+
+
+def add_new_project(projects):
+    """Add new project to projects list."""
+    print("Lets add a new project")
+    name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority = input("Priority: ")
+    cost_estimate = input("Cost estimate: $")
+    percent_complete = input("Percent complete: ")
+    projects.append(Project(name, start_date, priority, cost_estimate, percent_complete))
 
 
 def test_functions():
