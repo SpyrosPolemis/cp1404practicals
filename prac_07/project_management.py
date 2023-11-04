@@ -22,12 +22,13 @@ def main():
     projects = load_projects_from_file(DEFAULT_FILENAME)
     print(MENU)
     user_choice = input(">>> ").lower()
-    while user_choice != "Q":
+    while user_choice != "q":
         if user_choice == "l":
-            filename = input("Enter filename: ")
-            projects = load_projects_from_file(filename)
+            filename_to_load = input("Enter filename: ")
+            projects = load_projects_from_file(filename_to_load)
         elif user_choice == "s":
-            pass
+            filename_to_write = input("Enter filename: ")
+            save_projects_to_file(filename_to_write, projects)
         elif user_choice == "d":
             pass
         elif user_choice == "f":
@@ -54,8 +55,12 @@ def load_projects_from_file(filename):
     return projects
 
 
-def save_projects_to_file():
-    """"""
+def save_projects_to_file(filename, projects):
+    """Save projects to selected file."""
+    with open(filename, "w") as out_file:
+        print("Name    Start Date	Priority	Cost Estimate	Completion Percentage", file=out_file)
+        for project in projects:
+            print(repr(project), file=out_file)
 
 
 def test_functions():
