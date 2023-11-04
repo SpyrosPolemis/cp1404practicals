@@ -11,6 +11,10 @@ def main():
     """"""
     guitars = load_guitars_from_file()
     add_user_guitars(guitars)
+    print_guitars(guitars)
+
+
+def print_guitars(guitars):
     for guitar in guitars:
         print(guitar)
 
