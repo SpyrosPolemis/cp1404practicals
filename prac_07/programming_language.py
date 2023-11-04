@@ -17,15 +17,12 @@ class ProgrammingLanguage:
 
     def __repr__(self):
         """Return string representation of a ProgrammingLanguage."""
-        return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, Pointer Arithmetic={self.pointer_arithmetic}, First appeared in {self.year}"
+        return (f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, "
+                f"Pointer Arithmetic={self.pointer_arithmetic}, First appeared in {self.year}")
 
     def is_dynamic(self):
         """Determine if language is dynamically typed."""
         return self.typing == "Dynamic"
-
-    def has_pointer_arithmetic(self):
-        """Determine if language has pointer arithmetic"""
-        return self.pointer_arithmetic == "Yes"
 
 
 def run_tests():
@@ -40,11 +37,6 @@ def run_tests():
     print("The dynamically typed languages are:")
     for language in languages:
         if language.is_dynamic():
-            print(language.name)
-
-    print("The pointer arithmetic languages are:")
-    for language in languages:
-        if language.has_pointer_arithmetic():
             print(language.name)
 
 
