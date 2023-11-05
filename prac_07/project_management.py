@@ -1,7 +1,7 @@
 """
 
 Estimate: 120 minutes
-Actual:
+Actual: 109 so far... + 20 -> 129 minutes
 """
 import datetime
 from project import Project
@@ -41,9 +41,11 @@ def main():
             print("Invalid input")
         print(MENU)
         user_choice = input(">>> ").lower()
+    print("Thank you for using custom-built project management software.")
 
 
 def display_projects(projects):
+    projects.sort()
     complete_projects = [project for project in projects if project.completion_percentage == 100]
     print("Incomplete projects:")
     for project in projects:
@@ -77,11 +79,13 @@ def save_projects_to_file(filename, projects):
 def filter_projects_by_date(projects):
     """Print projects that start after user-specified date."""
     date_string = input("Show projects that start after date (dd/mm/yy): ")
-    date_to_start_by = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
-    for project in projects:
-        date_of_project = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
-        if date_of_project > date_to_start_by:
-            print(project)
+    date_to_filter_by = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    projects_filtered_by_date = sorted([project for project in projects if
+                                        datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date() >=
+                                        date_to_filter_by])
+    print("Projects that start after the specified date:")
+    for project in projects_filtered_by_date:
+        print(project)
 
 
 def add_new_project(projects):
@@ -107,13 +111,13 @@ def update_project(projects):
     if new_percentage == "":
         new_percentage = project_to_update.completion_percentage
     else:
-        project_to_update.completion_percentage = new_percentage
+        project_to_update.completion_percentage = int(new_percentage)
 
     new_priority = input("New priority: ")
     if new_priority == "":
         new_priority = project_to_update.priority
     else:
-        project_to_update.priority = new_priority
+        project_to_update.priority = int(new_priority)
 
 
 def test_functions():
