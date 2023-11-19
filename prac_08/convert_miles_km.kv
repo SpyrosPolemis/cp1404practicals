@@ -1,0 +1,23 @@
+BoxLayout:
+    orientation: "vertical"
+    BoxLayout:
+        TextInput:
+            size_hint_x: 75
+            text: "1"
+            id: miles_input
+            on_text: app.convert_to_kilometres(miles_input.text)
+        BoxLayout:
+            size_hint_x: 15
+            orientation: "vertical"
+            Button:
+                text: "up"
+                on_press: app.adjust_miles(1)
+            Button:
+                text: "down"
+                on_press: app.adjust_miles(-1)
+#    Button:
+#        text: "Convert miles to kilometres"
+#        on_press: app.convert_to_kilometres(miles_input.text)
+    Label:
+        text: "Result"
+        id: conversion_output
