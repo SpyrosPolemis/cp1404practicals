@@ -2,7 +2,7 @@
 SilverServiceTaxi subclass of Taxi
 Prac09 CP1404
 Estimated: 35 mins
-Actual:
+Actual: 30 mins
 """
 from taxi import Taxi
 
